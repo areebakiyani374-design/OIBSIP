@@ -1,42 +1,37 @@
-# Task 3 · Temperature Converter Website
+# Task 1 · Landing Page — Glasshouse
 
 **Track:** Web Development & Designing — Level 1
-**Objective:** Build an interactive web tool that converts temperature values between Celsius, Fahrenheit, and Kelvin, with real-time input validation.
+**Objective:** Build a visually polished static landing page for a product, service, or brand of my choice, using foundational HTML/CSS layout skills.
 
 ## About this project
 
-A single-page temperature converter. Enter a value, choose the unit you're converting *from*, and it instantly shows the equivalent value in all three units (Celsius, Fahrenheit, Kelvin). Invalid input and physically impossible values (below absolute zero) are both caught and explained.
+A landing page for **Glasshouse**, a fictional monthly houseplant subscription brand. The page walks a visitor from the hero pitch through how the subscription works, a sample of the plant catalogue, customer reviews, and a final call to action.
 
 ## Tech stack
 
 - HTML5
-- CSS3
-- JavaScript (Vanilla — no libraries, no `eval()`)
+- CSS3 only (Flexbox for layout, no JavaScript, no frameworks)
+- Google Fonts: [Fraunces](https://fonts.google.com/specimen/Fraunces) (headings) and [Work Sans](https://fonts.google.com/specimen/Work+Sans) (body)
 
 ## Feature checklist
 
-- [x] Numeric input field with validation — non-numeric or empty input shows an inline error
-- [x] Dropdown to select the input unit (Celsius / Fahrenheit / Kelvin)
-- [x] Auto-conversion showing all three output units simultaneously
-- [x] Convert button triggers the calculation (also works via Enter key)
-- [x] Result display area with correct unit labels (°C, °F, K)
-- [x] Edge case handling: any value that converts to below −273.15 °C shows a friendly "below absolute zero" warning instead of a result
-- [x] Clean, centred, card-based UI with clear labels
-
-## Conversion formulas used
-
-- Celsius → Fahrenheit: `F = C × 9/5 + 32`
-- Fahrenheit → Celsius: `C = (F − 32) × 5/9`
-- Celsius ↔ Kelvin: `K = C + 273.15`
+- [x] Sticky navigation bar with 4 links (Plants, How it works, Reviews, Contact)
+- [x] Hero section with headline, subheadline, and a primary call-to-action button
+- [x] 4 distinct content sections: How it works, Plants (features), Reviews (testimonials), CTA band
+- [x] Footer with placeholder contact details and social links
+- [x] Consistent colour palette (deep forest green, cream paper, ochre gold, sage) across every section
+- [x] Fully responsive layout using CSS Flexbox, with breakpoints at 880px and 640px
+- [x] Explicit padding/margin/box-sizing throughout — no element overlap at any screen width
+- [x] Clear typographic scale: serif display font for headings, sans-serif for body, multiple font sizes (h1 down to small print)
 
 ## Files
 
 | File | Description |
 |---|---|
-| `index.html` | Full converter tool (HTML + CSS + JS) |
-| `screenshot-desktop.png` | Desktop view |
-| `screenshot-mobile.png` | Mobile view |
+| `index.html` | Full landing page (HTML + embedded CSS) |
+| `screenshot-desktop.png` | Desktop view (1440px) |
+| `screenshot-mobile.png` | Mobile view (390px) |
 
 ## How to view
 
-Open `index.html` directly in any browser — no build step, no server, no dependencies.
+Open `index.html` directly in any browser — no build step or server required.
