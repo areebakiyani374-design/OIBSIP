@@ -3,316 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glasshouse — A little wild, delivered monthly</title>
+<title>Areeba Rauf — Web Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
-  /* ---------- Reset & base ---------- */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html{ scroll-behavior: smooth; }
 
   :root{
-    --forest: #16302A;
-    --forest-dark: #0F221D;
-    --paper: #F3EFE3;
-    --paper-soft: #EAE4D3;
-    --ochre: #C89B3C;
-    --ochre-dark: #A87E2C;
-    --ink: #22201B;
-    --sage: #6E8C74;
-    --sage-line: #C3D0C0;
+    --paper: #FAF7F0;
+    --paper-soft: #F1ECDF;
+    --ink: #1D1B16;
+    --ink-soft: #55524A;
+    --indigo: #3648C9;
+    --olive: #8A8D5E;
+    --line: #DCD5C3;
+    --coral: #E8876A;
+    --sky: #B9D9D2;
+    --lilac: #D8C7E8;
 
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'Work Sans', -apple-system, sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
   }
 
   body{
     font-family: var(--font-body);
+    background:
+      radial-gradient(circle at 8% 12%, rgba(232,135,106,0.3), transparent 28%),
+      radial-gradient(circle at 92% 34%, rgba(185,217,210,0.52), transparent 30%),
+      radial-gradient(circle at 48% 82%, rgba(216,199,232,0.44), transparent 32%),
+      var(--paper);
     color: var(--ink);
-    background: var(--paper);
     line-height: 1.6;
-    font-size: 16px;
   }
 
-  img, svg { display: block; max-width: 100%; }
-  a { color: inherit; text-decoration: none; }
-  ul { list-style: none; }
+  a{ color: inherit; text-decoration: none; }
+  ul{ list-style: none; }
+  img{ max-width: 100%; display:block; }
 
   .wrap{
-    max-width: 1160px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 0 32px;
   }
 
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.15; }
+  h1, h2, h3{ font-family: var(--font-display); line-height: 1.1; }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 600; }
+  h3 { font-size: 1.05rem; font-weight: 600; }
+  p  { font-size: 1rem; }
+  .lede { font-size: 1.1rem; color: var(--ink-soft); }
 
-  h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
-  h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); }
-  h3 { font-size: 1.2rem; }
+  section{
+    padding: 90px 0;
+    border-bottom: 1px solid rgba(29,27,22,0.12);
+    background: rgba(250,247,240,0.48);
+  }
+  section:nth-of-type(even){ background: rgba(185,217,210,0.2); }
+  section:last-of-type{ border-bottom: none; }
 
-  p { font-size: 1rem; }
-  .lede { font-size: 1.15rem; color: #45443c; }
-
-  .btn{
-    display: inline-block;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.98rem;
-    padding: 14px 30px;
-    border-radius: 3px;
-    border: 1.5px solid transparent;
-    cursor: pointer;
-    transition: transform 0.15s ease, background 0.2s ease;
+  .eyebrow-num{
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--olive);
+    margin-bottom: 10px;
+    display:block;
   }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary{
-    background: var(--ochre);
-    color: var(--forest-dark);
-  }
-  .btn-primary:hover { background: var(--ochre-dark); }
-  .btn-outline{
-    background: transparent;
-    border-color: rgba(243,239,227,0.5);
-    color: var(--paper);
-  }
-  .btn-outline:hover{ border-color: var(--paper); }
 
   /* ---------- Nav ---------- */
   header{
     position: sticky;
     top: 0;
     z-index: 50;
-    background: var(--forest);
-    border-bottom: 1px solid rgba(243,239,227,0.08);
+    background: rgba(250,247,240,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
   }
   nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 32px;
-    max-width: 1160px;
+    max-width: 1080px;
     margin: 0 auto;
-  }
-  .brand{
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    color: var(--paper);
+    padding: 20px 32px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
   }
-  .brand svg { width: 26px; height: 26px; }
-
-  .nav-links{
-    display: flex;
-    gap: 34px;
+  .logo{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
   }
-  .nav-links a{
-    color: var(--paper-soft);
-    font-size: 0.95rem;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 4px;
-  }
-  .nav-links a:hover{ color: var(--paper); }
-  .nav-links a::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width:0; height:1px;
-    background: var(--ochre);
-    transition: width 0.2s ease;
-  }
-  .nav-links a:hover::after{ width: 100%; }
-
-  .nav-cta{
-    background: var(--ochre);
-    color: var(--forest-dark);
-    padding: 10px 20px;
-    border-radius: 3px;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-  .nav-toggle{ display:none; }
+  .nav-links{ display:flex; gap: 30px; }
+  .nav-links a{ font-size: 0.94rem; font-weight: 500; color: var(--ink-soft); }
+  .nav-links a:hover{ color: var(--indigo); }
 
   /* ---------- Hero ---------- */
+  .hero{ padding-top: 100px; padding-bottom: 100px; }
   .hero{
-    background: var(--forest);
-    color: var(--paper);
-    padding: 80px 0 100px;
+    background:
+      linear-gradient(120deg, rgba(54,72,201,0.09), transparent 48%),
+      linear-gradient(300deg, rgba(232,135,106,0.2), transparent 42%);
   }
-  .hero .wrap{
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 60px;
+  .hero-grid{
+    display: flex;
+    gap: 56px;
     align-items: center;
+    flex-wrap: wrap;
   }
-  .hero h1{ color: var(--paper); }
-  .hero .lede{ color: var(--sage-line); margin: 22px 0 34px; max-width: 46ch; }
-  .hero-actions{ display:flex; gap: 16px; flex-wrap: wrap; align-items:center; }
-  .hero-note{ margin-top: 20px; font-size: 0.88rem; color: rgba(243,239,227,0.55); }
+  .hero-text{ flex: 1 1 420px; }
+  .hero-text .role{
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--indigo);
+    margin-top: 10px;
+  }
+  .hero-text .lede{ margin: 22px 0 30px; max-width: 46ch; }
 
-  .hero-art{
+  .avatar{
+    flex: 0 0 200px;
+    width: 200px;
+    height: 200px;
+    border-radius: 6px;
+    background: linear-gradient(145deg, var(--sky), var(--lilac) 55%, #F4C7A5);
+    border: 1.5px solid rgba(54,72,201,0.25);
+    box-shadow: 14px 14px 0 rgba(54,72,201,0.12);
     display:flex;
+    align-items:center;
     justify-content:center;
   }
-  .hero-art svg{ width: 100%; max-width: 340px; }
+  .avatar svg{ width: 90px; height: 90px; }
 
-  /* ---------- How it works ---------- */
-  .steps{
-    padding: 100px 0;
+  .hero-links{ display:flex; gap: 16px; flex-wrap: wrap; }
+  .btn{
+    display:inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 13px 26px;
+    border-radius: 3px;
+    border: 1.5px solid var(--ink);
   }
-  .section-head{
-    max-width: 56ch;
-    margin-bottom: 56px;
-  }
-  .section-head p{ margin-top: 14px; }
+  .btn-primary{ background: var(--indigo); border-color: var(--indigo); color: var(--paper); }
+  .btn-outline{ background: transparent; color: var(--ink); }
 
-  .steps-grid{
-    display: flex;
+  /* ---------- About ---------- */
+  .about-grid{
+    display:flex;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  .about-grid .lede{ flex: 1 1 420px; max-width: 60ch; }
+  .about-facts{ flex: 1 1 240px; }
+  .about-facts li{ display:flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+  .about-facts li span:first-child{ color: var(--ink-soft); }
+
+  /* ---------- Skills ---------- */
+  .skill-groups{
+    display:flex;
     flex-wrap: wrap;
     gap: 40px;
   }
-  .step{
-    flex: 1 1 260px;
-    border-top: 2px solid var(--forest);
-    padding-top: 20px;
-  }
-  .step-num{
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    color: var(--sage);
-    display:block;
-    margin-bottom: 10px;
-  }
-  .step p{ margin-top: 10px; color: #45443c; }
-
-  /* ---------- Plants (features) ---------- */
-  .plants{
+  .skill-group{ flex: 1 1 220px; }
+  .skill-group h3{ margin-bottom: 16px; color: var(--olive); font-size: 0.9rem; text-transform: none; }
+  .tag-row{ display:flex; flex-wrap: wrap; gap: 10px; }
+  .tag{
+    font-size: 0.88rem;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
     background: var(--paper-soft);
-    padding: 100px 0;
   }
-  .plant-grid{
-    display: flex;
+
+  /* ---------- Projects ---------- */
+  .project-list{ display:flex; flex-direction: column; gap: 0; }
+  .project{
+    display:flex;
+    gap: 30px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
     flex-wrap: wrap;
-    gap: 28px;
   }
-  .plant-card{
-    flex: 1 1 280px;
-    background: var(--paper);
-    border: 1px solid var(--sage-line);
-    padding: 28px 26px 32px;
-  }
-  .plant-card .icon{
-    width: 46px; height: 46px;
-    margin-bottom: 18px;
-  }
-  .plant-card h3{ margin-bottom: 8px; }
-  .plant-card p{ color: #45443c; font-size: 0.95rem; }
-  .plant-tag{
-    display:inline-block;
-    margin-top: 16px;
-    font-size: 0.8rem;
+  .project:last-child{ border-bottom: 1px solid var(--line); }
+  .project-num{ flex: 0 0 60px; font-family: var(--font-display); color: var(--olive); font-size: 1rem; }
+  .project-body{ flex: 1 1 380px; }
+  .project-body p{ color: var(--ink-soft); margin: 10px 0 14px; max-width: 60ch; }
+  .project-link{
+    font-size: 0.9rem;
     font-weight: 600;
-    color: var(--forest);
-    border-bottom: 1px solid var(--ochre);
+    color: var(--indigo);
+    border-bottom: 1px solid var(--indigo);
     padding-bottom: 2px;
   }
+  .project-tags{ display:flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .project-tags span{ font-size: 0.78rem; color: var(--ink-soft); }
+  .project-tags span:not(:last-child)::after{ content: "·"; margin-left: 8px; }
 
-  /* ---------- Testimonials ---------- */
-  .reviews{
-    padding: 100px 0;
-  }
-  .review-grid{
-    display: flex;
+  /* ---------- Experience ---------- */
+  .exp-list{ display:flex; flex-direction: column; }
+  .exp-item{
+    display:flex;
+    gap: 30px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
     flex-wrap: wrap;
-    gap: 32px;
   }
-  .review{
-    flex: 1 1 280px;
-    padding: 30px 28px;
-    background: var(--forest);
-    color: var(--paper);
-  }
-  .review:nth-child(2){ background: var(--ochre); color: var(--forest-dark); }
-  .review:nth-child(3){ background: var(--sage); color: var(--forest-dark); }
-  .review p{ font-size: 1rem; line-height: 1.65; }
-  .review cite{
-    display:block;
-    margin-top: 18px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 0.9rem;
-    opacity: 0.85;
-  }
+  .exp-item:last-child{ border-bottom: 1px solid var(--line); }
+  .exp-when{ flex: 0 0 160px; color: var(--ink-soft); font-size: 0.9rem; }
+  .exp-body{ flex: 1 1 380px; }
+  .exp-body h3{ margin-bottom: 2px; }
+  .exp-org{ font-size: 0.92rem; color: var(--indigo); margin-bottom: 10px; display:block; }
+  .exp-body p{ color: var(--ink-soft); max-width: 62ch; }
 
-  /* ---------- CTA band ---------- */
-  .cta-band{
-    background: var(--forest-dark);
-    color: var(--paper);
-    padding: 70px 0;
-    text-align: center;
-  }
-  .cta-band h2{ color: var(--paper); margin-bottom: 18px; }
-  .cta-band p{ color: var(--sage-line); margin-bottom: 30px; }
+  /* ---------- Contact ---------- */
+  .contact{ text-align: left; }
+  .contact-grid{ display:flex; justify-content: space-between; align-items:flex-end; gap: 30px; flex-wrap: wrap; }
+  .contact h2{ max-width: 14ch; }
+  .contact-links{ display:flex; flex-direction: column; gap: 12px; }
+  .contact-links a{ font-size: 1.05rem; font-weight: 600; }
+  .contact-links a:hover{ color: var(--indigo); }
 
-  /* ---------- Footer ---------- */
   footer{
-    background: var(--forest);
-    color: var(--paper-soft);
-    padding: 60px 0 30px;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
   }
-  .footer-top{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(243,239,227,0.12);
-  }
-  .footer-top > div{ flex: 1 1 180px; }
-  .footer-brand{ flex: 1.6 1 260px; }
-  .footer-brand p{ margin-top: 14px; color: rgba(243,239,227,0.6); max-width: 32ch; font-size: 0.92rem; }
-  footer h3{ font-family: var(--font-body); font-size: 0.92rem; font-weight: 600; color: var(--paper); margin-bottom: 16px; }
-  footer ul li{ margin-bottom: 10px; }
-  footer ul li a{ color: rgba(243,239,227,0.65); font-size: 0.92rem; }
-  footer ul li a:hover{ color: var(--paper); }
-  .footer-bottom{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 26px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .footer-bottom p{ font-size: 0.85rem; color: rgba(243,239,227,0.5); }
-  .social{ display:flex; gap: 16px; }
-  .social a{
-    width: 34px; height:34px;
-    display:flex; align-items:center; justify-content:center;
-    border: 1px solid rgba(243,239,227,0.25);
-    border-radius: 50%;
-  }
-  .social a:hover{ border-color: var(--ochre); }
-  .social svg{ width:16px; height:16px; }
 
   /* ---------- Responsive ---------- */
-  @media (max-width: 880px){
-    .hero .wrap{ grid-template-columns: 1fr; }
-    .hero-art{ order: -1; }
-    .hero-art svg{ max-width: 240px; }
-  }
-
   @media (max-width: 640px){
     .wrap{ padding: 0 20px; }
     nav{ padding: 16px 20px; }
-    .nav-links{ display: none; }
-    .hero{ padding: 56px 0 64px; }
-    .steps, .plants, .reviews{ padding: 64px 0; }
-    .step, .plant-card, .review{ flex-basis: 100%; }
-    .footer-top{ gap: 30px; }
-    .footer-top > div, .footer-brand{ flex-basis: 100%; }
-    .footer-bottom{ flex-direction: column; align-items: flex-start; }
+    .nav-links{ gap: 18px; }
+    section{ padding: 60px 0; }
+    .hero{ padding-top: 60px; padding-bottom: 60px; }
+    .avatar{ width: 140px; height:140px; flex-basis: 140px; }
+    .avatar svg{ width: 64px; height: 64px; }
+    .contact-grid{ flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -320,174 +246,199 @@
 
 <header>
   <nav>
-    <a href="#" class="brand">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 21V11" stroke="#C89B3C" stroke-width="1.6" stroke-linecap="round"/><path d="M12 11C12 6.5 9 4 4 4C4 8.5 7 11 12 11Z" fill="#6E8C74"/><path d="M12 13C12 9 15 6.8 19 6.8C19 10.8 16.4 13 12 13Z" fill="#8FAE96"/></svg>
-      Glasshouse
-    </a>
+    <span class="logo">Areeba Rauf</span>
     <ul class="nav-links">
-      <li><a href="#plants">Plants</a></li>
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Get started</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <div>
-      <h1>Bring the outside in.</h1>
-      <p class="lede">Hand-picked houseplants delivered to your door every month, matched to your light, your space, and how much you actually remember to water.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Start your subscription</a>
-        <a href="#how" class="btn btn-outline">See how it works</a>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Areeba Rauf</h1>
+      <p class="role">Web Developer · Front-End Development</p>
+      <p class="lede">I build responsive, user-friendly websites with HTML, CSS, and JavaScript — backed by a strong design sensibility from UI/UX work in Figma. I like turning design concepts into clean, functional, cross-browser-ready code.</p>
+      <div class="hero-links">
+        <a href="#projects" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
       </div>
-      <p class="hero-note">First box from $24. Skip or cancel anytime.</p>
     </div>
-    <div class="hero-art">
-      <svg viewBox="0 0 300 340" fill="none">
-        <path d="M100 340V240" stroke="#8FAE96" stroke-width="3"/>
-        <path d="M100 240C60 220 40 180 50 130C90 140 110 180 100 240Z" fill="#6E8C74"/>
-        <path d="M100 240C140 210 160 160 145 110C105 130 90 175 100 240Z" fill="#8FAE96"/>
-        <path d="M100 200C75 190 65 165 70 135C95 145 108 170 100 200Z" fill="#C3D0C0"/>
-        <rect x="55" y="240" width="90" height="70" rx="4" fill="#C89B3C"/>
-        <rect x="55" y="240" width="90" height="14" fill="#A87E2C"/>
-        <path d="M60 310L70 340H130L140 310H60Z" fill="#A87E2C"/>
+    <div class="avatar">
+      <svg viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="38" r="18" fill="#3648C9"/>
+        <path d="M18 88C18 66 32 56 50 56C68 56 82 66 82 88" fill="#8A8D5E"/>
       </svg>
     </div>
   </div>
 </section>
 
-<section class="steps" id="how">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Three steps to a greener room</h2>
-      <p class="lede">No greenhouse experience required — we do the choosing, you do the enjoying.</p>
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="eyebrow-num">About</span>
+      <h2>A little about me</h2>
+      <p class="lede" style="margin-top:18px;">I'm a motivated web developer with hands-on experience building responsive, user-friendly websites, and a practical, detail-oriented approach to translating design into code. My background spans front-end development and UI/UX case-study work, so I care as much about visual hierarchy and spacing as I do about clean, performant markup.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step">
-        <span class="step-num">01</span>
-        <h3>Tell us about your space</h3>
-        <p>A two-minute quiz on light, room size, and how forgiving you need your plant to be.</p>
+    <ul class="about-facts">
+      <li><span>Studying</span><span>BS Software Engineering, FJWU</span></li>
+      <li><span>Focus</span><span>Front-End Development & UI/UX</span></li>
+      <li><span>Recent role</span><span>Frontend Developer, Hire Bridge</span></li>
+      <li><span>Open to</span><span>Frontend roles & freelance work</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <span class="eyebrow-num">Skills</span>
+    <h2 style="margin-bottom: 40px;">What I work with</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Development</h3>
+        <div class="tag-row">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Responsive Web Design</span>
+          <span class="tag">Cross-Browser Compatibility</span>
+          <span class="tag">Performance Optimization</span>
+        </div>
       </div>
-      <div class="step">
-        <span class="step-num">02</span>
-        <h3>We match and pack</h3>
-        <p>Our growers hand-select a plant suited to your answers and box it with care instructions.</p>
+      <div class="skill-group">
+        <h3>Design</h3>
+        <div class="tag-row">
+          <span class="tag">Figma</span>
+          <span class="tag">UI/UX Fundamentals</span>
+          <span class="tag">Visual Hierarchy</span>
+          <span class="tag">Landing Page Design</span>
+        </div>
       </div>
-      <div class="step">
-        <span class="step-num">03</span>
-        <h3>It arrives, thriving</h3>
-        <p>Delivered monthly in breathable packaging, ready to unbox and place — no repotting needed.</p>
+      <div class="skill-group">
+        <h3>Tools</h3>
+        <div class="tag-row">
+          <span class="tag">VS Code</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Cursor AI</span>
+          <span class="tag">Claude AI</span>
+          <span class="tag">ChatGPT</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="plants" id="plants">
+<section id="experience">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Plants for every kind of room</h2>
-      <p class="lede">A rotating selection, so your collection never looks the same two months running.</p>
-    </div>
-    <div class="plant-grid">
-      <div class="plant-card">
-        <svg class="icon" viewBox="0 0 46 46" fill="none"><path d="M23 40V20" stroke="#6E8C74" stroke-width="2"/><path d="M23 20C10 16 8 6 8 6C8 6 20 6 23 20Z" fill="#8FAE96"/><path d="M23 20C36 16 38 6 38 6C38 6 26 6 23 20Z" fill="#6E8C74"/></svg>
-        <h3>Low-light survivors</h3>
-        <p>Pothos, ZZ plant, snake plant — for the corner desk that never sees direct sun.</p>
-        <span class="plant-tag">Shop low-light</span>
+    <span class="eyebrow-num">Experience</span>
+    <h2 style="margin-bottom: 20px;">Where I've worked</h2>
+    <div class="exp-list">
+      <div class="exp-item">
+        <span class="exp-when">Jul – Oct 2025</span>
+        <div class="exp-body">
+          <h3>Frontend Developer</h3>
+          <span class="exp-org">Hire Bridge</span>
+          <p>Enhanced the company's website visual design, layout, and overall UX, making it fully responsive. Applied HTML, CSS, and JavaScript to ship clean UI improvements and keep the site visually consistent across browsers.</p>
+        </div>
       </div>
-      <div class="plant-card">
-        <svg class="icon" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="4" fill="#C89B3C"/><path d="M23 19C15 15 15 6 15 6C15 6 24 8 23 19Z" fill="#8FAE96"/><path d="M23 19C31 15 31 6 31 6C31 6 22 8 23 19Z" fill="#6E8C74"/><path d="M23 27C15 31 15 40 15 40C15 40 24 38 23 27Z" fill="#C3D0C0"/></svg>
-        <h3>Statement leaves</h3>
-        <p>Monstera, fiddle leaf fig, bird of paradise — for rooms that can handle a centrepiece.</p>
-        <span class="plant-tag">Shop statement</span>
+      <div class="exp-item">
+        <span class="exp-when">Jul – Oct 2025</span>
+        <div class="exp-body">
+          <h3>HR Manager</h3>
+          <span class="exp-org">Hire Bridge</span>
+          <p>Supervised junior team members and monitored task completion, coordinated with candidates on internship opportunities and onboarding, and managed official coordination channels.</p>
+        </div>
       </div>
-      <div class="plant-card">
-        <svg class="icon" viewBox="0 0 46 46" fill="none"><rect x="18" y="30" width="10" height="10" fill="#C89B3C"/><path d="M23 30C14 28 12 18 12 18C12 18 22 18 23 30Z" fill="#6E8C74"/><path d="M23 30C32 28 34 18 34 18C34 18 24 18 23 30Z" fill="#8FAE96"/></svg>
-        <h3>Desk-sized</h3>
-        <p>Succulents, air plants, pilea — compact picks for shelves, sills, and small apartments.</p>
-        <span class="plant-tag">Shop desk-sized</span>
+      <div class="exp-item">
+        <span class="exp-when">2024 – 2025</span>
+        <div class="exp-body">
+          <h3>Operations Team Member</h3>
+          <span class="exp-org">GDGoC (Google Developer Group on Campus), Rawalpindi</span>
+          <p>Managed event documentation and logistics, supported on-ground execution, and collaborated with the team to deliver technical and community-driven campus events.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <span class="exp-when">Present</span>
+        <div class="exp-body">
+          <h3>Online Teacher</h3>
+          <span class="exp-org">Cornwall Islamic Foundation</span>
+          <p>Teaching students online, managing educational activities, and maintaining organized, well-communicated sessions.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="reviews" id="reviews">
+<section id="projects">
   <div class="wrap">
-    <div class="section-head">
-      <h2>What subscribers say</h2>
-      <p class="lede">Real notes from people who've kept a plant alive for the first time.</p>
-    </div>
-    <div class="review-grid">
-      <div class="review">
-        <p>"I've killed every plant I've owned. Six months into Glasshouse and everything is still green. The care cards actually help."</p>
-        <cite>— Priya M., Mumbai</cite>
+    <span class="eyebrow-num">Projects</span>
+    <h2 style="margin-bottom: 20px;">Selected work</h2>
+    <div class="project-list">
+      <div class="project">
+        <span class="project-num">01</span>
+        <div class="project-body">
+          <h3>Bloom — Wellness App Landing Page</h3>
+          <p>A calming landing page for a meditation and mindfulness product, using a soft lavender and purple palette. Structured around a hero with a strong CTA, a feature overview (Sleep Sounds, Soothing Coach, Guided Sessions), and a closing sign-up CTA — with rounded cards and soft shadows for a friendly, approachable feel.</p>
+          <div class="project-tags"><span>Figma</span><span>Web/UI Design</span><span>Landing Page</span></div>
+          <br>
+          <a href="[link-to-figma-file]" class="project-link">View case study</a>
+        </div>
       </div>
-      <div class="review">
-        <p>"The monthly surprise is the best part. My apartment has slowly turned into an actual jungle and I love it."</p>
-        <cite>— Daniel R., Austin</cite>
+      <div class="project">
+        <span class="project-num">02</span>
+        <div class="project-body">
+          <h3>Collector — NFT Marketplace Landing Page</h3>
+          <p>A dark-themed landing page concept using a black background with glowing teal and orange accents for a modern, tech-forward identity. Includes a clear nav with sign up/login actions and a bold hero with dual call-to-action buttons, built around contrast-driven design to keep key actions prominent.</p>
+          <div class="project-tags"><span>Figma</span><span>Web/UI Design</span><span>Dark Theme</span></div>
+          <br>
+          <a href="[link-to-figma-file]" class="project-link">View case study</a>
+        </div>
       </div>
-      <div class="review">
-        <p>"Packaging is genuinely thoughtful — nothing arrived damaged, and the pot matched my kitchen tiles somehow."</p>
-        <cite>— Aisha K., Toronto</cite>
+      <div class="project">
+        <span class="project-num">03</span>
+        <div class="project-body">
+          <h3>LinkedIn App Redesign — UI/UX Case Study</h3>
+          <p>A full set of mobile app screens reimagining the LinkedIn experience in a black, white, and grey monochrome palette for a clean, high-contrast identity. Linked into an interactive Figma prototype to demonstrate realistic navigation and user flow.</p>
+          <div class="project-tags"><span>Figma</span><span>Mobile UI/UX</span><span>Prototyping</span></div>
+          <br>
+          <a href="[link-to-figma-file]" class="project-link">View case study</a>
+        </div>
+      </div>
+      <div class="project">
+        <span class="project-num">04</span>
+        <div class="project-body">
+          <h3>Ride-Sharing App — UI/UX Case Study</h3>
+          <p>Mobile app screens for a ride-sharing concept covering key flows — booking a ride, tracking a driver, and viewing trip history — with a focus on intuitive navigation and consistent component design.</p>
+          <div class="project-tags"><span>Figma</span><span>Mobile UI/UX</span><span>User Flows</span></div>
+          <br>
+          <a href="[link-to-figma-file]" class="project-link">View case study</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="wrap">
-    <h2>Your next plant is already picked out.</h2>
-    <p>Join this month's batch before the 15th and it ships by Friday.</p>
-    <a href="#contact" class="btn btn-primary">Start your subscription</a>
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow-num">Contact</span>
+      <h2>Let's work together</h2>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:areebakiyani374@gmail.com">areebakiyani374@gmail.com</a>
+      <a href="tel:+923325188005">+92 332 5188005</a>
+      <a href="https://www.linkedin.com/in/areeba-kiyani-a23ba5371" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="[your-github-url]">GitHub</a>
+    </div>
   </div>
 </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="brand">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21V11" stroke="#C89B3C" stroke-width="1.6" stroke-linecap="round"/><path d="M12 11C12 6.5 9 4 4 4C4 8.5 7 11 12 11Z" fill="#6E8C74"/><path d="M12 13C12 9 15 6.8 19 6.8C19 10.8 16.4 13 12 13Z" fill="#8FAE96"/></svg>
-          Glasshouse
-        </a>
-        <p>A monthly plant subscription for people who want a greener home without becoming a full-time botanist.</p>
-      </div>
-      <div>
-        <h3>Company</h3>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Support</h3>
-        <ul>
-          <li><a href="#">Plant care guide</a></li>
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">Contact us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Get in touch</h3>
-        <ul>
-          <li><a href="mailto:hello@glasshouse.example">hello@glasshouse.example</a></li>
-          <li><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Glasshouse Botanicals. All rights reserved.</p>
-      <div class="social">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#F3EFE3" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="#F3EFE3"/></svg></a>
-        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="#F3EFE3" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-3 1.5-6 1.5-8a1.5 1.5 0 013 0c0 1.5-1 3-1 4.5a1.5 1.5 0 003 0"/></svg></a>
-        <a href="#" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="#F3EFE3" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-      </div>
-    </div>
-  </div>
+<footer>
+  <p>© 2026 Areeba Rauf. Built with HTML & CSS.</p>
 </footer>
 
 </body>

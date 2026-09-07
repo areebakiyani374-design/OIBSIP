@@ -1,37 +1,42 @@
-# Task 1 · Landing Page — Glasshouse
+# Task 2 · Personal Portfolio — Areeba Rauf
 
 **Track:** Web Development & Designing — Level 1
-**Objective:** Build a visually polished static landing page for a product, service, or brand of my choice, using foundational HTML/CSS layout skills.
+**Objective:** Create a personal portfolio website that showcases skills, projects, and contact information — a digital résumé.
 
-## About this project
+Built using the profile, work experience, and project case studies from Areeba Rauf's résumé.
 
-A landing page for **Glasshouse**, a fictional monthly houseplant subscription brand. The page walks a visitor from the hero pitch through how the subscription works, a sample of the plant catalogue, customer reviews, and a final call to action.
+## ⚠️ Two things left to fill in
+
+- `[link-to-figma-file]` (appears 4 times, one per project) — replace with the real public Figma share link for each case study
+- `[your-github-url]` in the Contact section — add your GitHub profile URL
+- Optional: swap the placeholder avatar icon for a real `<img>` profile photo
 
 ## Tech stack
 
 - HTML5
-- CSS3 only (Flexbox for layout, no JavaScript, no frameworks)
-- Google Fonts: [Fraunces](https://fonts.google.com/specimen/Fraunces) (headings) and [Work Sans](https://fonts.google.com/specimen/Work+Sans) (body)
+- CSS3 (Flexbox for layout; `scroll-behavior: smooth` for in-page navigation — no JavaScript needed)
+- Google Fonts: Space Grotesk (headings) and Inter (body)
 
 ## Feature checklist
 
-- [x] Sticky navigation bar with 4 links (Plants, How it works, Reviews, Contact)
-- [x] Hero section with headline, subheadline, and a primary call-to-action button
-- [x] 4 distinct content sections: How it works, Plants (features), Reviews (testimonials), CTA band
-- [x] Footer with placeholder contact details and social links
-- [x] Consistent colour palette (deep forest green, cream paper, ochre gold, sage) across every section
-- [x] Fully responsive layout using CSS Flexbox, with breakpoints at 880px and 640px
-- [x] Explicit padding/margin/box-sizing throughout — no element overlap at any screen width
-- [x] Clear typographic scale: serif display font for headings, sans-serif for body, multiple font sizes (h1 down to small print)
+- [x] Hero section: name, role title, and an avatar placeholder
+- [x] About Me section
+- [x] Skills section: grouped tag list of technical skills (Development, Design, Tools)
+- [x] Experience section (bonus): 4 real roles with dates and descriptions
+- [x] Projects section: 4 project cards with title, description, and case-study link placeholder
+- [x] Contact section: email, phone, LinkedIn, GitHub
+- [x] Smooth scroll navigation between sections
+- [x] Consistent branding (colour palette, two font families) throughout
+- [x] Fully responsive — tested at desktop and mobile widths
 
 ## Files
 
 | File | Description |
 |---|---|
-| `index.html` | Full landing page (HTML + embedded CSS) |
-| `screenshot-desktop.png` | Desktop view (1440px) |
+| `index.html` | Full portfolio page (HTML + embedded CSS) |
+| `screenshot-desktop.png` | Desktop view (1280px) |
 | `screenshot-mobile.png` | Mobile view (390px) |
 
 ## How to view
 
-Open `index.html` directly in any browser — no build step or server required.
+Open `index.html` directly in any browser.
