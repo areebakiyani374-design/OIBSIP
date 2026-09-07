@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glasshouse — A little wild, delivered monthly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ---------- Reset & base ---------- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  :root{
+    --forest: #16302A;
+    --forest-dark: #0F221D;
+    --paper: #F3EFE3;
+    --paper-soft: #EAE4D3;
+    --ochre: #C89B3C;
+    --ochre-dark: #A87E2C;
+    --ink: #22201B;
+    --sage: #6E8C74;
+    --sage-line: #C3D0C0;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, sans-serif;
+  }
+
+  body{
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .wrap{
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.15; }
+
+  h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+  h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); }
+  h3 { font-size: 1.2rem; }
+
+  p { font-size: 1rem; }
+  .lede { font-size: 1.15rem; color: #45443c; }
+
+  .btn{
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 14px 30px;
+    border-radius: 3px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary{
+    background: var(--ochre);
+    color: var(--forest-dark);
+  }
+  .btn-primary:hover { background: var(--ochre-dark); }
+  .btn-outline{
+    background: transparent;
+    border-color: rgba(243,239,227,0.5);
+    color: var(--paper);
+  }
+  .btn-outline:hover{ border-color: var(--paper); }
+
+  /* ---------- Nav ---------- */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--forest);
+    border-bottom: 1px solid rgba(243,239,227,0.08);
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .brand{
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand svg { width: 26px; height: 26px; }
+
+  .nav-links{
+    display: flex;
+    gap: 34px;
+  }
+  .nav-links a{
+    color: var(--paper-soft);
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  .nav-links a:hover{ color: var(--paper); }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0; height:1px;
+    background: var(--ochre);
+    transition: width 0.2s ease;
+  }
+  .nav-links a:hover::after{ width: 100%; }
+
+  .nav-cta{
+    background: var(--ochre);
+    color: var(--forest-dark);
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .nav-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background: var(--forest);
+    color: var(--paper);
+    padding: 80px 0 100px;
+  }
+  .hero .wrap{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero h1{ color: var(--paper); }
+  .hero .lede{ color: var(--sage-line); margin: 22px 0 34px; max-width: 46ch; }
+  .hero-actions{ display:flex; gap: 16px; flex-wrap: wrap; align-items:center; }
+  .hero-note{ margin-top: 20px; font-size: 0.88rem; color: rgba(243,239,227,0.55); }
+
+  .hero-art{
+    display:flex;
+    justify-content:center;
+  }
+  .hero-art svg{ width: 100%; max-width: 340px; }
+
+  /* ---------- How it works ---------- */
+  .steps{
+    padding: 100px 0;
+  }
+  .section-head{
+    max-width: 56ch;
+    margin-bottom: 56px;
+  }
+  .section-head p{ margin-top: 14px; }
+
+  .steps-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .step{
+    flex: 1 1 260px;
+    border-top: 2px solid var(--forest);
+    padding-top: 20px;
+  }
+  .step-num{
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--sage);
+    display:block;
+    margin-bottom: 10px;
+  }
+  .step p{ margin-top: 10px; color: #45443c; }
+
+  /* ---------- Plants (features) ---------- */
+  .plants{
+    background: var(--paper-soft);
+    padding: 100px 0;
+  }
+  .plant-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+  .plant-card{
+    flex: 1 1 280px;
+    background: var(--paper);
+    border: 1px solid var(--sage-line);
+    padding: 28px 26px 32px;
+  }
+  .plant-card .icon{
+    width: 46px; height: 46px;
+    margin-bottom: 18px;
+  }
+  .plant-card h3{ margin-bottom: 8px; }
+  .plant-card p{ color: #45443c; font-size: 0.95rem; }
+  .plant-tag{
+    display:inline-block;
+    margin-top: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--forest);
+    border-bottom: 1px solid var(--ochre);
+    padding-bottom: 2px;
+  }
+
+  /* ---------- Testimonials ---------- */
+  .reviews{
+    padding: 100px 0;
+  }
+  .review-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .review{
+    flex: 1 1 280px;
+    padding: 30px 28px;
+    background: var(--forest);
+    color: var(--paper);
+  }
+  .review:nth-child(2){ background: var(--ochre); color: var(--forest-dark); }
+  .review:nth-child(3){ background: var(--sage); color: var(--forest-dark); }
+  .review p{ font-size: 1rem; line-height: 1.65; }
+  .review cite{
+    display:block;
+    margin-top: 18px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background: var(--forest-dark);
+    color: var(--paper);
+    padding: 70px 0;
+    text-align: center;
+  }
+  .cta-band h2{ color: var(--paper); margin-bottom: 18px; }
+  .cta-band p{ color: var(--sage-line); margin-bottom: 30px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--forest);
+    color: var(--paper-soft);
+    padding: 60px 0 30px;
+  }
+  .footer-top{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(243,239,227,0.12);
+  }
+  .footer-top > div{ flex: 1 1 180px; }
+  .footer-brand{ flex: 1.6 1 260px; }
+  .footer-brand p{ margin-top: 14px; color: rgba(243,239,227,0.6); max-width: 32ch; font-size: 0.92rem; }
+  footer h3{ font-family: var(--font-body); font-size: 0.92rem; font-weight: 600; color: var(--paper); margin-bottom: 16px; }
+  footer ul li{ margin-bottom: 10px; }
+  footer ul li a{ color: rgba(243,239,227,0.65); font-size: 0.92rem; }
+  footer ul li a:hover{ color: var(--paper); }
+  .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 26px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-bottom p{ font-size: 0.85rem; color: rgba(243,239,227,0.5); }
+  .social{ display:flex; gap: 16px; }
+  .social a{
+    width: 34px; height:34px;
+    display:flex; align-items:center; justify-content:center;
+    border: 1px solid rgba(243,239,227,0.25);
+    border-radius: 50%;
+  }
+  .social a:hover{ border-color: var(--ochre); }
+  .social svg{ width:16px; height:16px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero-art{ order: -1; }
+    .hero-art svg{ max-width: 240px; }
+  }
+
+  @media (max-width: 640px){
+    .wrap{ padding: 0 20px; }
+    nav{ padding: 16px 20px; }
+    .nav-links{ display: none; }
+    .hero{ padding: 56px 0 64px; }
+    .steps, .plants, .reviews{ padding: 64px 0; }
+    .step, .plant-card, .review{ flex-basis: 100%; }
+    .footer-top{ gap: 30px; }
+    .footer-top > div, .footer-brand{ flex-basis: 100%; }
+    .footer-bottom{ flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#" class="brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 21V11" stroke="#C89B3C" stroke-width="1.6" stroke-linecap="round"/><path d="M12 11C12 6.5 9 4 4 4C4 8.5 7 11 12 11Z" fill="#6E8C74"/><path d="M12 13C12 9 15 6.8 19 6.8C19 10.8 16.4 13 12 13Z" fill="#8FAE96"/></svg>
+      Glasshouse
+    </a>
+    <ul class="nav-links">
+      <li><a href="#plants">Plants</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get started</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Bring the outside in.</h1>
+      <p class="lede">Hand-picked houseplants delivered to your door every month, matched to your light, your space, and how much you actually remember to water.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start your subscription</a>
+        <a href="#how" class="btn btn-outline">See how it works</a>
+      </div>
+      <p class="hero-note">First box from $24. Skip or cancel anytime.</p>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 300 340" fill="none">
+        <path d="M100 340V240" stroke="#8FAE96" stroke-width="3"/>
+        <path d="M100 240C60 220 40 180 50 130C90 140 110 180 100 240Z" fill="#6E8C74"/>
+        <path d="M100 240C140 210 160 160 145 110C105 130 90 175 100 240Z" fill="#8FAE96"/>
+        <path d="M100 200C75 190 65 165 70 135C95 145 108 170 100 200Z" fill="#C3D0C0"/>
+        <rect x="55" y="240" width="90" height="70" rx="4" fill="#C89B3C"/>
+        <rect x="55" y="240" width="90" height="14" fill="#A87E2C"/>
+        <path d="M60 310L70 340H130L140 310H60Z" fill="#A87E2C"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Three steps to a greener room</h2>
+      <p class="lede">No greenhouse experience required — we do the choosing, you do the enjoying.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Tell us about your space</h3>
+        <p>A two-minute quiz on light, room size, and how forgiving you need your plant to be.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>We match and pack</h3>
+        <p>Our growers hand-select a plant suited to your answers and box it with care instructions.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>It arrives, thriving</h3>
+        <p>Delivered monthly in breathable packaging, ready to unbox and place — no repotting needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plants" id="plants">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Plants for every kind of room</h2>
+      <p class="lede">A rotating selection, so your collection never looks the same two months running.</p>
+    </div>
+    <div class="plant-grid">
+      <div class="plant-card">
+        <svg class="icon" viewBox="0 0 46 46" fill="none"><path d="M23 40V20" stroke="#6E8C74" stroke-width="2"/><path d="M23 20C10 16 8 6 8 6C8 6 20 6 23 20Z" fill="#8FAE96"/><path d="M23 20C36 16 38 6 38 6C38 6 26 6 23 20Z" fill="#6E8C74"/></svg>
+        <h3>Low-light survivors</h3>
+        <p>Pothos, ZZ plant, snake plant — for the corner desk that never sees direct sun.</p>
+        <span class="plant-tag">Shop low-light</span>
+      </div>
+      <div class="plant-card">
+        <svg class="icon" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="4" fill="#C89B3C"/><path d="M23 19C15 15 15 6 15 6C15 6 24 8 23 19Z" fill="#8FAE96"/><path d="M23 19C31 15 31 6 31 6C31 6 22 8 23 19Z" fill="#6E8C74"/><path d="M23 27C15 31 15 40 15 40C15 40 24 38 23 27Z" fill="#C3D0C0"/></svg>
+        <h3>Statement leaves</h3>
+        <p>Monstera, fiddle leaf fig, bird of paradise — for rooms that can handle a centrepiece.</p>
+        <span class="plant-tag">Shop statement</span>
+      </div>
+      <div class="plant-card">
+        <svg class="icon" viewBox="0 0 46 46" fill="none"><rect x="18" y="30" width="10" height="10" fill="#C89B3C"/><path d="M23 30C14 28 12 18 12 18C12 18 22 18 23 30Z" fill="#6E8C74"/><path d="M23 30C32 28 34 18 34 18C34 18 24 18 23 30Z" fill="#8FAE96"/></svg>
+        <h3>Desk-sized</h3>
+        <p>Succulents, air plants, pilea — compact picks for shelves, sills, and small apartments.</p>
+        <span class="plant-tag">Shop desk-sized</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What subscribers say</h2>
+      <p class="lede">Real notes from people who've kept a plant alive for the first time.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review">
+        <p>"I've killed every plant I've owned. Six months into Glasshouse and everything is still green. The care cards actually help."</p>
+        <cite>— Priya M., Mumbai</cite>
+      </div>
+      <div class="review">
+        <p>"The monthly surprise is the best part. My apartment has slowly turned into an actual jungle and I love it."</p>
+        <cite>— Daniel R., Austin</cite>
+      </div>
+      <div class="review">
+        <p>"Packaging is genuinely thoughtful — nothing arrived damaged, and the pot matched my kitchen tiles somehow."</p>
+        <cite>— Aisha K., Toronto</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Your next plant is already picked out.</h2>
+    <p>Join this month's batch before the 15th and it ships by Friday.</p>
+    <a href="#contact" class="btn btn-primary">Start your subscription</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21V11" stroke="#C89B3C" stroke-width="1.6" stroke-linecap="round"/><path d="M12 11C12 6.5 9 4 4 4C4 8.5 7 11 12 11Z" fill="#6E8C74"/><path d="M12 13C12 9 15 6.8 19 6.8C19 10.8 16.4 13 12 13Z" fill="#8FAE96"/></svg>
+          Glasshouse
+        </a>
+        <p>A monthly plant subscription for people who want a greener home without becoming a full-time botanist.</p>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Plant care guide</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="mailto:hello@glasshouse.example">hello@glasshouse.example</a></li>
+          <li><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Glasshouse Botanicals. All rights reserved.</p>
+      <div class="social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#F3EFE3" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="#F3EFE3"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="#F3EFE3" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 17c1-3 1.5-6 1.5-8a1.5 1.5 0 013 0c0 1.5-1 3-1 4.5a1.5 1.5 0 003 0"/></svg></a>
+        <a href="#" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="#F3EFE3" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
